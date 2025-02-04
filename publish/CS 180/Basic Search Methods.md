@@ -103,4 +103,39 @@
 - Time Complexity: $O(b^m)$
 - Space Complexity: $O(bm)$
 ##### Depth-Limited Strategy
+- DFS with **depth cutoff** $k$ (maximal depth below which nodes are not expanded)
+- Three possible outcomes:
+	1. Solution
+	2. Failure (no solution)
+	3. Cutoff (no solution within cutoff)
+	![[Pasted image 20250204224930.png]]
+##### Iterative Deepening Strategy
+- repeat depth-limited for $k=0,1,2,...$
+- Complete: Yes
+- Optimal: Yes if step cost = 1
+- Time complexity: $O(b^d)$
+- Space complexity: $O(bd)$
+##### Uniform-Cost Strategy (Dijkstra's Algorithm)
+- each step has some cost $e$
+- The cost of the path to each frontier node $N$ is:
+	- $g(N)=\sum$ costs of all steps
+- goal is to generate a solution path of **minimal cost**
+- The queue FRONTIER is sorted in increasing cost
+- Node Expansion
+	- processes all nodes with cost less than cheapest solution
+- Time complexity: $O(b^{C^*/\epsilon})$
+- Space Complexity: $O(b^{C^*/\epsilon})$
+- Complete: Yes
+- Optimal: Yes
+##### Differences between UCS and BFS
+1. ordering of queue by path cost
+2. **goal test is applied to a node when it is selected for expansion** rather than when it is first generated
+3. a test is added in case a better path is found to a node currently on the frontier
 
+### Strategy Comparison
+![[Pasted image 20250204230009.png]]
+- BFS is complete and optimal, but has high space complexity
+- DFS is space efficient, but neither complete nor optimal
+	- Not complete in an infinite state tree
+	- Not optimal because it fully expands a branch first before going to the next
+- iterative deepening is asymptotically optimal
