@@ -102,7 +102,6 @@
 	- perceive only part of the environment
 - Unobservable
 	- cannot perceive the environment at all
-### Nature of Environment
 ##### Knowledge
 - Known
 	- full knowledge on all laws governing the environment
